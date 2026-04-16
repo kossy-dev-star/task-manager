@@ -1,1 +1,27 @@
+# タスク管理アプリ
 
+## 概要
+Spring Boot + PostgreSQL を用いたタスク管理アプリを開発中。
+
+## 目的
+- 個人開発を通じてバックエンド開発スキル習得
+- 要件定義〜実装まで一貫して経験する
+
+## 使用技術
+- Java（Spring Boot）
+- PostgreSQL
+- Maven
+- DBeaver
+
+## 設計資料
+- [要件定義書](docs/01_requirements_definition.xlsx)
+
+## 進捗
+- 要件定義：完了
+- DB設計：作成中
+- 実装：未着手
+
+## 今後の予定
+- テーブル定義
+- Entity作成
+- API開発
