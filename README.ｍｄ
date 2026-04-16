@@ -25,3 +25,48 @@ Spring Boot + PostgreSQL を用いたタスク管理アプリを開発中。
 - テーブル定義
 - Entity作成
 - API開発
+
+
+## データベース設計（概要）
+
+### usersテーブル
+| カラム名 | 型 | PK | FK | NULL | 説明 |
+|----------|----|----|----|------|------|
+| id | BIGINT | ○ | × | × | ユーザー識別ID |
+| name | VARCHAR(100) | × | × | × | ユーザー名 |
+| email | VARCHAR(255) | × | × | × | メールアドレス |
+| password | VARCHAR(255) | × | × | × | パスワード |
+| created_at | TIMESTAMP | × | × | × | 作成日時 |
+| updated_at | TIMESTAMP | × | × | × | 更新日時 |
+
+---
+
+### projectsテーブル
+| カラム名 | 型 | PK | FK | NULL | 説明 |
+|----------|----|----|----|------|------|
+| id | BIGINT | ○ | × | × | プロジェクトID |
+| project_name | VARCHAR(100) | × | × | × | プロジェクト名 |
+| description | VARCHAR(100) | × | × | × | プロジェクト説明 |
+| created_by | BIGINT | × | ○ | × | 作成者ユーザーID |
+| created_at | TIMESTAMP | × | × | × | 作成日時 |
+| updated_at | TIMESTAMP | × | × | × | 更新日時 |
+
+---
+
+### tasksテーブル
+| カラム名 | 型 | PK | FK | NULL | 説明 |
+|----------|----|----|----|------|------|
+| id | BIGINT | ○ | × | × | タスクID |
+| project_id | BIGINT | × | ○ | × | プロジェクトID |
+| assignee_user_id | BIGINT | × | ○ | × | 担当ユーザーID |
+| task_name | VARCHAR(100) | × | × | × | タスク名 |
+| description | VARCHAR(500) | × | × | × | タスク詳細 |
+| status | VARCHAR(20) | × | × | × | 状態 |
+| priority | VARCHAR(20) | × | × | × | 優先度 |
+| due_date | DATE | × | × | × | 期限 |
+| created_at | TIMESTAMP | × | × | × | 作成日時 |
+| updated_at | TIMESTAMP | × | × | × | 更新日時 |
+
+---
+
+※詳細は docs/01_requirements_definition.xlsx を参照
